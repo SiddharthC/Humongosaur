@@ -1,30 +1,29 @@
 //vars declared and defined. 
-var url = require("url");
-var util = require("util");
 var mongoose = require("mongoose");
 var express = require("express");
-var ejs = require("ejs");
-
-//mongo connection TODO hardcoded now should be user configurable from front end.
-var db = mongoose.connect('mongodb://127.0.0.1/local');
+var config = require("./config/config.js");
+var MongoWebController = require("./controllers/mongoweb.js");
+var _ = require("underscore");
 
 var app = express();
 
-app.set('views', __dirname + '/views');
-app.engine('html', ejs.renderFile);
+//mongo connection TODO hardcoded now should be user configurable from front end.
+var db = mongoose.connect(config.DATABASE_URL);
 
-app.use(express.json());
-app.use(express.bodyParser());
-app.use(express.urlencoded());
-app.use(express.logger('dev'));
-app.use(express.static(__dirname + '/public'));
+/*Bootstrap express*/
+require("./config/express.js")(app, config);
 
 app.get('/', function(req, res){
-		res.render('login_page.html');	
+		res.redirect("login");
 	});
 
+//Serving pages
+app.get("/login", MongoWebController.loginPage);
 
-console.log("Server started at port 8888");
-app.listen(8888);
+//Posts
+app.post("/login", MongoWebController.login);
+app.post("/logout", MongoWebController.logout);
 
+app.listen(config.SERVER_PORT);
+console.log("MongoWeb server up and running at --> " + config.SERVER_PORT);
 

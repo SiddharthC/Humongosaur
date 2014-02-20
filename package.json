@@ -6,7 +6,8 @@
 		"express": "*",
 		"mongoose": "*",
 		"ejs": "*",
-		"url": "*",
-		"util": "*"
+		"underscore": "*",
+		"bcrypt-nodejs": "*",
+		"connect-mongo": "*"
 	}
 }
