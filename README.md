@@ -1,4 +1,4 @@
-MongoWeb
+Humongosaur
 ========
 
-A nodejs based web client for mongodb
+A multiuser nodejs based web client for mongodb
