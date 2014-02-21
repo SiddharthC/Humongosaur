@@ -1,7 +1,30 @@
 var User = require("../models/user.js");
 
 var MongoWebController = {
+	
+	configure: function(){	//admin account init check
+		User.findOne({
+				username: "admin"
+			}, function(err, result){
+				if (err){
+					throw err;
+				}
 
+				if (!result){
+					new User({
+							username: "admin",
+							password: "adminadmin",
+							email: "admin@domain.com",
+							isAdminFlag: "true"
+						}).save(function(err, result){
+							if(err){
+								
+							}
+						});
+				}
+			}
+		});
+	},
 
 	loginPage : function(req, res) {
 		res.sendfile("login.html", {root: "./views/"});
