@@ -134,9 +134,10 @@ var MongoWebController = {
 					isAdminFlag: isAdminFlag
 				}).save(function(err, result){
 					if(err){
-						throw wrr;
+						throw err;
 					}
 
+					/*
 					var mailOptions = {
 						from: "MongoWeb Dev Team <mongoweb.node@gmail.com>",
 						to: email,
@@ -161,6 +162,9 @@ var MongoWebController = {
 					});
 
 					res.send("Please verify through the email received.");
+					*/
+
+					res.send("Thanks for registering....");
 				});
 			}
 		});
