@@ -50,7 +50,7 @@ var MongoWebController = {
 	},
 
 	loginPage : function(req, res) {
-		res.sendfile("login.html", {root: "./views/"});
+		res.sendfile("login_page.html", {root: "./views/"});
 		req.session.lastPage = '/login';
 	},
 
