@@ -19,10 +19,13 @@ app.get('/', function(req, res){
 
 //Serving pages
 app.get("/login", MongoWebController.loginPage);
+app.get("/register", MongoWebController.helper.authenticateAdmin, MongoWebController.registerPage);
+app.get("/home", MongoWebController.helper.authenticate, MongoWebController.home);
 
 //Posts
 app.post("/login", MongoWebController.login);
 app.post("/logout", MongoWebController.logout);
+app.post("/register", MongoWebController.helper.authenticateAdmin, MongoWebController.register);
 
 app.listen(config.SERVER_PORT);
 console.log("MongoWeb server up and running at --> " + config.SERVER_PORT);
