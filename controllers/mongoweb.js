@@ -1,6 +1,8 @@
 var User = require("../models/user.js");
 
 var MongoWebController = {
+
+
 	loginPage : function(req, res) {
 		res.sendfile("login.html", {root: "./views/"});
 		req.session.lastPage = '/login';

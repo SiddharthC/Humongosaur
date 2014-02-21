@@ -2,7 +2,7 @@ var express =  require("express");
 var mongoStore =  require("connect-mongo")(express);
 var MongoWebController =  require("../controllers/mongoweb.js");
 
-module.export = function(app, config){
+module.exports = function(app, config){
 	app.configure(MongoWebController.configure);
 	app.use(express.json());
 	app.use(express.urlencoded());
@@ -19,4 +19,4 @@ module.export = function(app, config){
 	
 	app.use(express.logger());
 	app.use(app.router);
-}
+};
