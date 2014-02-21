@@ -88,7 +88,7 @@ var MongoWebController = {
 	},
 
 	home: function(req, res, next){
-		res.sendfile("messages.html", {root: "./views/"});
+		res.sendfile("home.html", {root: "./views/"});
 	},
 
 	registerPage: function(req, res){

@@ -27,12 +27,13 @@
             <div id="homebutton">
                 <a href="home.html"><img src="images/home.png" width="50px" height="50px" alt="Home" /></a>
             </div>
-            <div id="profile">
-                <img src="images/admin.jpg" width="65px" height="65px" alt="Profile" />
-            </div>
+	    <div> 
+	    	<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
+	    </div>
         </div>
     </div>
     <div id="wrapper">
+    	<!--
         <div id="left">
             <div id="navbar">
                 <ul>
@@ -66,6 +67,15 @@
                 </div>
             </div>
         </div>
+-->
+
+	<div>
+		<textarea id="query_string" style="width: 200px; height: 20 px">Enter your Query here...</textarea>
+		<button type="button" id="query_button">Run</button>
+	</div>
+	<div>
+		<p id="query_result"></p>
+	</div>
     </div>
 
     <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
