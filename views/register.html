@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Home</title>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="scripts/logout.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="header">
+        <div id="headercenter">
+            <div id="logo">
+                <img src="images/MongoWeb.png" width="79px" height="55px" alt="MongoWeb" /><br/>
+                <h1>MongoWeb</h1>
+            </div>
+            <div id="homebutton">
+                <a href="home.html"><img src="images/home.png" width="50px" height="50px" alt="Home" /></a>
+            </div>
+            <div id="graph">
+                <img src="images/graph.jpg" width="800px" height="30px" alt="Graph" />
+            </div>
+            <div id="profile">
+                <img src="images/profile.png" width="65px" height="65px" alt="Profile" />
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="left">
+            <div id="navbar">
+                <ul>
+                    <a href="messages.html"><button type="button" class="btn btn-primary btn-lg">Messages</button></a>
+                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Incidents</button></a>
+                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Sources</button></a>
+                    <a href="topics.html"><button type="button" class="btn btn-primary btn-lg">Topics</button></a>
+                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Follow-up</button></a>
+                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Analysis</button></a>
+                    <a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
+                </ul>
+            </div>
+        </div>
+            <div id="right">
+                <div id="register" style="float: left; margin: 20px 0 0 20px;">
+                <h2 style="margin: 0; padding:0;">Register</h2>
+                <form action="/register" method="POST">
+                    <fieldset>
+                        <p>
+                            <label for="username">Username</label>
+                        </p>
+                        <p>
+                            <input type="text" id="username" name="username" value="username" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value=''">
+                        </p>
+
+                        <p>
+                            <label for="password">Password</label>
+                        </p>
+                        <p>
+                            <input type="password" id="password" name="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''">
+                        </p>
+                        <p>
+                            <label for="email">E-mail address</label>
+                        </p>
+                        <p>
+                            <input type="email" id="email" name="email" value="mail@address.com" onBlur="if(this.value=='')this.value='mail@address.com'" onFocus="if(this.value=='mail@address.com')this.value=''">
+                        </p>
+                        <p>
+                            <input type="checkbox" name="isAdminFlag" value="true">This user is an Administrator</input>
+                        </p>
+                        <p>
+                            <input type="submit" value="Register">
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
+</body>	
+</html>
