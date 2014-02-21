@@ -32,7 +32,12 @@ var MongoWebController = {
 				res.redirect('/login');
 			}
 		});
-	}
+	},
+	
+	logout: function(req, res){
+		req.session.destroy();
+		res.status(302).redirect("/login");
+	},
 };
 
 module.exports = MongoWebController;
