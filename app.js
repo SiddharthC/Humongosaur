@@ -22,6 +22,9 @@ app.get("/login", MongoWebController.loginPage);
 app.get("/register", MongoWebController.helper.authenticateAdmin, MongoWebController.registerPage);
 app.get("/home", MongoWebController.helper.authenticate, MongoWebController.home);
 
+//test page
+app.get("/testPage", MongoWebController.testPage);
+
 //Posts
 app.post("/login", MongoWebController.login);
 app.post("/logout", MongoWebController.logout);

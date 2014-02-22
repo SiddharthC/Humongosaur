@@ -192,7 +192,12 @@ var MongoWebController = {
 				});
 			}
 		});
-	}
+	},
+
+	testPage: function(req, res) {
+		res.sendfile("testPage.html", {root: "./views/"});
+	},
+
 };
 
 module.exports = MongoWebController;
