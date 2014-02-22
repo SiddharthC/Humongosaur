@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="./css/bootstrap.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="scripts/logout.js"></script>
 
 	<!--[if lt IE 9]>
@@ -17,22 +17,26 @@
 </head>
 
 <body>
-
 	<div id="header">
-        <div id="headercenter">
-            <div id="logo">
-                <img src="images/MongoWeb.png" width="79px" height="55px" alt="MongoWeb" /><br/>
-                <h1>MongoWeb</h1>
-            </div>
-            <div id="homebutton">
-                <a href="home.html"><img src="images/home.png" width="50px" height="50px" alt="Home" /></a>
-            </div>
-	    <div> 
-	    	<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
-	    </div>
-        </div>
-    </div>
-    <div id="wrapper">
+        	<div id="headercenter">
+		<!--	<div id="logo">
+		                <img src="images/MongoWeb.png" width="80px" height="55px" alt="MongoWeb" /><br/>
+                		<h1>MongoWeb</h1>
+			</div>
+		-->
+			<div id="logo">
+				<a href="home.html">
+					<img src="images/MongoWeb.png" width="80px" height="60px" alt="Home" /><br/>
+					<h1>MongoWeb</h1>
+				</a>
+			</div>
+			<div id="logout-button"> 
+			    	<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
+			</div>
+	        </div>
+    	</div>
+	<br>
+	<div id="wrapper">
     	<!--
         <div id="left">
             <div id="navbar">
@@ -68,16 +72,18 @@
             </div>
         </div>
 -->
-
-	<div>
-		<textarea id="query_string" style="width: 200px; height: 20 px">Enter your Query here...</textarea>
-		<button type="button" id="query_button">Run</button>
+		<div id="table">
+			<table style="width:100%">
+				<tr>
+					<td><textarea id="query_string" style="width: 100%; height: 40%">Enter your Query here...</textarea></td>
+					<td><button type="button" id="query_button">Run</button></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<p id="query_result"></p>
+		</div>
 	</div>
-	<div>
-		<p id="query_result"></p>
-	</div>
-    </div>
-
-    <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
 </body>	
 </html>
