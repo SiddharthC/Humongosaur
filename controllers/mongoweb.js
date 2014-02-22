@@ -1,4 +1,9 @@
 var User = require("../models/user.js");
+var mongoose = require("mongoose");
+var childProcess = require("child_process");
+
+//create connection
+var db = mongoose.connect(config.DATABASE_URL);
 
 var MongoWebController = {
 	
@@ -49,12 +54,12 @@ var MongoWebController = {
 		}
 	},
 
-	loginPage : function(req, res) {
+	loginPage: function(req, res) {
 		res.sendfile("login_page.html", {root: "./views/"});
 		req.session.lastPage = '/login';
 	},
 
-	login : function(req, res) {
+	login: function(req, res) {
 		var username = req.param("username", "");
 		var password = req.param("password", "");
 		User.findOne({username: username}, function(err, user) {
@@ -89,6 +94,25 @@ var MongoWebController = {
 
 	home: function(req, res, next){
 		res.sendfile("home.html", {root: "./views/"});
+	},
+	
+	//write query post function
+	inputQuery: function(req, res){
+		//TODO
+		//test code start
+		var query = "db.zips.find();";
+		var commandString = "mongo --eval " + query
+		
+		childProcess.exec(commandString, function(err, stdout, stderr){
+			if(err){
+				console.log(err.stack);
+				console.log("Error code: " + err.code);
+				console.log("Signal received: " + err.signal);
+			}
+
+			console.log("stdout: " + stdout);
+		});
+		//end
 	},
 
 	registerPage: function(req, res){
