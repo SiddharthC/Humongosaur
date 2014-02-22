@@ -100,6 +100,7 @@ var MongoWebController = {
 	inputQuery: function(req, res){
 		//TODO
 		//test code start
+		console.log("Query received is: " + req.params.query);
 		var query = "db.zips.find()";
 		var commandString = "mongo mongoweb --eval \"printjson( "+ query + " )\""; 
 		

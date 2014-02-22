@@ -21,6 +21,7 @@ app.get('/', function(req, res){
 app.get("/login", MongoWebController.loginPage);
 app.get("/register", MongoWebController.helper.authenticateAdmin, MongoWebController.registerPage);
 app.get("/home", MongoWebController.helper.authenticate, MongoWebController.home);
+app.get("/inputQuery", MongoWebController.inputQuery);
 
 //test page
 app.get("/testPage", MongoWebController.testPage);
@@ -29,7 +30,6 @@ app.get("/testPage", MongoWebController.testPage);
 app.post("/login", MongoWebController.login);
 app.post("/logout", MongoWebController.logout);
 app.post("/register", MongoWebController.helper.authenticateAdmin, MongoWebController.register);
-app.post("/inputQuery", MongoWebController.inputQuery);
 
 app.listen(config.SERVER_PORT);
 console.log("MongoWeb server up and running at --> " + config.SERVER_PORT);
