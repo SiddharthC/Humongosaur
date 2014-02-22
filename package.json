@@ -9,7 +9,6 @@
 		"underscore": "*",
 		"bcrypt-nodejs": "*",
 		"connect-mongo": "*",
-		"path": "*",
-		"child_process": "*"
+		"path": "*"
 	}
 }

@@ -3,7 +3,6 @@ var mongoose = require("mongoose");
 var childProcess = require("child_process");
 
 //create connection
-var db = mongoose.connect(config.DATABASE_URL);
 
 var MongoWebController = {
 	
