@@ -1,6 +1,7 @@
 var User = require("../models/user.js");
 var mongoose = require("mongoose");
 var childProcess = require("child_process");
+var Query = require("../models/queryModel.js");
 
 //create connection
 
@@ -99,8 +100,8 @@ var MongoWebController = {
 	inputQuery: function(req, res){
 		//TODO
 		//test code start
-		var query = "db.zips.find();";
-		var commandString = "mongo --eval " + query
+		var query = "db.zips.find()";
+		var commandString = "mongo mongoweb --eval \"printjson( "+ query + " )\""; 
 		
 		childProcess.exec(commandString, function(err, stdout, stderr){
 			if(err){
