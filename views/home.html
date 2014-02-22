@@ -11,12 +11,66 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="scripts/logout.js"></script>
 
+    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
+
+    <script type="text/javascript" src="./scripts/jquery-latest.js"></script>
+    <style type="text/css"></style>
+    <style type="text/css"></style>
+    <style type="text/css"></style>
+    <script type="text/javascript" src="./scripts/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="./scripts/jquery.layout-latest.js"></script>
+
+    <script type="text/javascript" src="./scripts/debug.js"></script>
+
+    <script type="text/javascript">
+    function toggleLiveResizing() {
+        $.each($.layout.config.borderPanes, function(i, pane) {
+            var o = myLayout.options[pane];
+            o.livePaneResizing = !o.livePaneResizing;
+        });
+    };
+
+    function toggleStateManagement(skipAlert, mode) {
+        if (!$.layout.plugins.stateManagement) return;
+
+        var options = myLayout.options.stateManagement,
+            enabled = options.enabled // current setting
+            ;
+        if ($.type(mode) === "boolean") {
+            if (enabled === mode) return; // already correct
+            enabled = options.enabled = mode
+        } else
+            enabled = options.enabled = !enabled; // toggle option
+
+        if (!enabled) { // if disabling state management...
+            myLayout.deleteCookie(); // ...clear cookie so will NOT be found on next refresh
+            if (!skipAlert)
+                alert('This layout will reload as the options specify \nwhen the page is refreshed.');
+        } else if (!skipAlert)
+            alert('This layout will save & restore its last state \nwhen the page is refreshed.');
+
+        // update text on button
+        var $Btn = $('#btnToggleState'),
+            text = $Btn.html();
+        if (enabled)
+            $Btn.html(text.replace(/Enable/i, "Disable"));
+        else
+            $Btn.html(text.replace(/Disable/i, "Enable"));
+    };
+
+    // set EVERY 'state' here so will undo ALL layout changes
+    // used by the 'Reset State' button: myLayout.loadState( stateResetSettings )
+    var stateResetSettings = {
+        north__size: "auto",
+        north__initClosed: false,
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<[endif]-->
+	</script>
 </head>
 
-<body>
+<body class="ui-layout-container" style="zoom: 1; overflow: hidden; width: auto; height: auto; margin: 0px; position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
 	<div id="header">
         	<div id="headercenter">
 		<!--	<div id="logo">
@@ -35,44 +89,9 @@
 			</div>
 	        </div>
     	</div>
-	<br>
-	<div id="wrapper">
-    	<!--
-        <div id="left">
-            <div id="navbar">
-                <ul>
-                    <a href="messages.html"><button type="button" class="btn btn-primary btn-lg">Messages</button></a>
-                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Incidents</button></a>
-                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Sources</button></a>
-                    <a href="topics.html"><button type="button" class="btn btn-primary btn-lg">Topics</button></a>
-                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Follow-up</button></a>
-                    <a href="#"><button type="button" class="btn btn-primary btn-lg">Analysis</button></a>
-                    <a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
-                </ul>
-            </div>
-        </div>
-        <div id="right">
-            <div id="floatleft">
-                <div class="box">
-                    <h1>MESSAGES</h1>
-                    <p>10,000 Messages</p>
-                </div>
-                <div class="box">
-                    <h1>SOURCES</h1>
-                </div>
-            </div>
-            <div id="floatright">
-                <div class="box">
-                    <h1>INCIDENTS</h1>
-					<p>9 new</p>
-                </div>
-                <div class="box">
-                    <h1>TOPICS</h1>
-                </div>
-            </div>
-        </div>
--->
-		<div id="table">
+	<br/>
+	<div id="wrapper"  class="ui-layout-container" style="zoom: 1; overflow: hidden; width: auto; height: auto; margin: 0px;">
+		<div id="table" class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style=" margin: 0px;  bottom: auto; width: auto; z-index: 0; height: 65px; display: block; visibility: visible; overflow: auto;">
 			<table style="width:100%">
 				<tr>
 					<td><textarea id="query_string" style="width: 100%; height: 40%">Enter your Query here...</textarea></td>
@@ -80,8 +99,8 @@
 				</tr>
 			</table>
 		</div>
-		<div>
-			<p id="query_result"></p>
+		<div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="margin: 0px;  z-index: 0; display: block; visibility: visible;">
+			<p id="query_result">Some Kachra</p>
 		</div>
 	</div>
 	<script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
