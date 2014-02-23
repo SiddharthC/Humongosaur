@@ -242,27 +242,16 @@
 <body class="ui-layout-container" style="zoom: 1; overflow: hidden; width: auto; height: auto; margin: 0px; position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
 
     <!-- manually attach allowOverflow method to pane -->
-    <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 0; height: 65px; display: block; visibility: visible; overflow: auto;">
-        This is the north pane, closable, slidable and resizable
-    </div>
+    <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 5px; top: 10px; bottom: 0px; left: 10px; right: 10px; width: auto; z-index: 0; height: 300px; display: block; visibility: visible; overflow: false; font-size:15px">
+     <textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
+    <button type="button" id="run_button">Run</button>
+     </div>
 
     <div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 206px; right: 306px; top: 93px; bottom: 48px; height: 490px; width: 832px; z-index: 0; display: block; visibility: visible;">
-        This CENTER pane auto-sizes to fit the space <i>between</i> the 'border-panes'
+      <p id="query_result">Some Kachra</p>
     </div>
 
 
-    <div id="" class="ui-layout-resizer ui-layout-resizer-north ui-layout-resizer-open ui-layout-resizer-north-open" title="Resize" aria-disabled="false" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: n-resize; top: 87px; width: 1366px; height: 6px; left: 0px;">
-        <div id="" class="ui-layout-toggler ui-layout-toggler-north ui-layout-toggler-open ui-layout-toggler-north-open" title="Close" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible; width: 48px; height: 6px; left: 658px; top: 0px;"></div>
-    </div>
-    <div id="" class="ui-layout-resizer ui-layout-resizer-south ui-layout-resizer-open ui-layout-resizer-south-open" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; bottom: 48px; cursor: default; display: none;">
-        <div id="" class="ui-layout-toggler ui-layout-toggler-south ui-layout-toggler-open ui-layout-toggler-south-open" title="Close" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible;"></div>
-    </div>
-    <div id="" class="ui-layout-resizer ui-layout-resizer-west ui-layout-resizer-open ui-layout-resizer-west-open" title="Resize" aria-disabled="false" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: w-resize; left: 200px; height: 512px; width: 6px; top: 93px;">
-        <div id="" class="ui-layout-toggler ui-layout-toggler-west ui-layout-toggler-open ui-layout-toggler-west-open" title="Close" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible; height: 48px; width: 6px; top: 231px; left: 0px;"></div>
-    </div>
-    <div id="" class="ui-layout-resizer ui-layout-resizer-east ui-layout-resizer-open ui-layout-resizer-east-open" title="Resize" aria-disabled="false" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: e-resize; right: 300px; height: 512px; width: 6px; top: 93px;">
-        <div id="" class="ui-layout-toggler ui-layout-toggler-east ui-layout-toggler-open ui-layout-toggler-east-open" title="Close" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible; height: 48px; width: 6px; top: 231px; left: 0px;"></div>
-    </div>
-</body>
+    </body>
 
 </html>
