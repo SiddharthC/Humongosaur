@@ -1,5 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<!-- saved from url=(0046)http://layout.jquery-dev.net/demos/simple.html -->
 <html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden; height: 100%; border: none; padding: 0px; margin: 0px;">
 
 <head>
@@ -9,85 +7,14 @@
 
     <link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
 
-    <style type="text/css">
-    p {
-        font-size: 1em;
-        margin: 1ex 0;
-    }
-    p.buttons {
-        text-align: center;
-        line-height: 2.5em;
-    }
-    button {
-        line-height: normal;
-    }
-    .hidden {
-        display: none;
-    }
-    /*
-	 *	Rules for simulated drop-down/pop-up lists
-	 */
-    ul {
-        /* rules common to BOTH inner and outer UL */
-        z-index: 100000;
-        margin: 1ex 0;
-        padding: 0;
-        list-style: none;
-        cursor: pointer;
-        border: 1px solid Black;
-        /* rules for outer UL only */
-        width: 15ex;
-        position: relative;
-    }
-    ul li {
-        background-color: #EEE;
-        padding: 0.15em 1em 0.3em 5px;
-    }
-    ul ul {
-        display: none;
-        position: absolute;
-        width: 100%;
-        left: -1px;
-        /* Pop-Up */
-        bottom: 0;
-        margin: 0;
-        margin-bottom: 1.55em;
-    }
-    .ui-layout-north ul ul {
-        /* Drop-Down */
-        bottom: auto;
-        margin: 0;
-        margin-top: 1.45em;
-    }
-    ul ul li {
-        padding: 3px 1em 3px 5px;
-    }
-    ul ul li:hover {
-        background-color: #FF9;
-    }
-    ul li:hover ul {
-        display: block;
-        background-color: #EEE;
-    }
-    </style>
-
     <!-- LAYOUT v 1.3.0 -->
     <script type="text/javascript" src="./scripts/jquery-latest.js"></script>
-    <style type="text/css"></style>
-    <style type="text/css"></style>
-    <style type="text/css"></style>
     <script type="text/javascript" src="./scripts/jquery-ui-latest.js"></script>
     <script type="text/javascript" src="./scripts/jquery.layout-latest.js"></script>
 
     <script type="text/javascript" src="./scripts/debug.js"></script>
 
     <script type="text/javascript">
-    function toggleLiveResizing() {
-        $.each($.layout.config.borderPanes, function(i, pane) {
-            var o = myLayout.options[pane];
-            o.livePaneResizing = !o.livePaneResizing;
-        });
-    };
 
     function toggleStateManagement(skipAlert, mode) {
         if (!$.layout.plugins.stateManagement) return;
@@ -108,13 +35,6 @@
         } else if (!skipAlert)
             alert('This layout will save & restore its last state \nwhen the page is refreshed.');
 
-        // update text on button
-        var $Btn = $('#btnToggleState'),
-            text = $Btn.html();
-        if (enabled)
-            $Btn.html(text.replace(/Enable/i, "Disable"));
-        else
-            $Btn.html(text.replace(/Disable/i, "Enable"));
     };
 
     // set EVERY 'state' here so will undo ALL layout changes
@@ -126,22 +46,13 @@
         south__size: "auto",
         south__initClosed: false,
         south__initHidden: false,
-        west__size: 200,
-        west__initClosed: false,
-        west__initHidden: false,
-        east__size: 300,
-        east__initClosed: false,
-        east__initHidden: false
     };
 
     var myLayout;
 
     $(document).ready(function() {
-
-        // this layout could be created with NO OPTIONS - but showing some here just as a sample...
-        // myLayout = $('body').layout(); -- syntax with No Options
-
-        myLayout = $('body').layout({
+        
+	myLayout = $('body').layout({
 
             //	reference only - these options are NOT required because 'true' is the default
             closable: true // pane can open & close
@@ -174,24 +85,6 @@
             east__maxSize: .5 // 50% of layout width
             ,
             center__minWidth: 100
-
-            //	some pane animation settings
-            ,
-            west__animatePaneSizing: false,
-            west__fxSpeed_size: "fast" // 'fast' animation when resizing west-pane
-            ,
-            west__fxSpeed_open: 1000 // 1-second animation when opening west-pane
-            ,
-            west__fxSettings_open: {
-                easing: "easeOutBounce"
-            } // 'bounce' effect when opening
-            ,
-            west__fxName_close: "none" // NO animation when closing west-pane
-
-            //	enable showOverflow on west-pane so CSS popups will overlap north pane
-            ,
-            west__showOverflowOnHover: true
-
             //	enable state management
             ,
             stateManagement__enabled: true // automatic cookie load & save enabled by default
@@ -204,44 +97,15 @@
         var cookieExists = !$.isEmptyObject(myLayout.readCookie());
         if (!cookieExists) toggleStateManagement(true, false);
 
-        myLayout
-        // add event to the 'Close' button in the East pane dynamically...
-        .bindButton('#btnCloseEast', 'close', 'east')
-
-        // add event to the 'Toggle South' buttons in Center AND South panes dynamically...
-        .bindButton('.south-toggler', 'toggle', 'south')
-
-        // add MULTIPLE events to the 'Open All Panes' button in the Center pane dynamically...
-        .bindButton('#openAllPanes', 'open', 'north')
-            .bindButton('#openAllPanes', 'open', 'south')
-            .bindButton('#openAllPanes', 'open', 'west')
-            .bindButton('#openAllPanes', 'open', 'east')
-
-        // add MULTIPLE events to the 'Close All Panes' button in the Center pane dynamically...
-        .bindButton('#closeAllPanes', 'close', 'north')
-            .bindButton('#closeAllPanes', 'close', 'south')
-            .bindButton('#closeAllPanes', 'close', 'west')
-            .bindButton('#closeAllPanes', 'close', 'east')
-
-        // add MULTIPLE events to the 'Toggle All Panes' button in the Center pane dynamically...
-        .bindButton('#toggleAllPanes', 'toggle', 'north')
-            .bindButton('#toggleAllPanes', 'toggle', 'south')
-            .bindButton('#toggleAllPanes', 'toggle', 'west')
-            .bindButton('#toggleAllPanes', 'toggle', 'east');
-
-        // 'Reset State' button requires updated functionality in rc29.15+
-        if ($.layout.revision && $.layout.revision >= 0.032915)
-            $('#btnReset').show();
-
     });
     </script>
 
 
 </head>
 
-<body class="ui-layout-container" style="zoom: 1; overflow: hidden; width: auto; height: auto; margin: 0px; position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
+<body>
 
-    <!-- manually attach allowOverflow method to pane -->
+
     <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 5px; top: 10px; bottom: 0px; left: 10px; right: 10px; width: auto; z-index: 0; height: 300px; display: block; visibility: visible; overflow: false; font-size:15px">
      <textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
     <button type="button" id="run_button">Run</button>
@@ -250,8 +114,16 @@
     <div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 206px; right: 306px; top: 93px; bottom: 48px; height: 490px; width: 832px; z-index: 0; display: block; visibility: visible;">
       <p id="query_result">Some Kachra</p>
     </div>
+<!--
+    <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 5px; top: 10px; bottom: 0px; left: 10px; right: 10px; width: auto; z-index: 0; height: 300px; display: block; visibility: visible; overflow: false; font-size:15px">
+     <textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
+    <button type="button" id="run_button">Run</button>
+     </div>
 
-
+    <div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 206px; right: 306px; top: 93px; bottom: 48px; height: 490px; width: 832px; z-index: 0; display: block; visibility: visible;">
+      <p id="query_result">Some Kachra</p>
+    </div>
+-->
     </body>
 
 </html>
