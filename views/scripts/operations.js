@@ -6,7 +6,12 @@ $(document).ready(function(){
 		};
 	
 		$.getJSON("/inputQuery", params, function(result){
-			jQuery('#output_box').val() = result;
+			console.log("In call back");
+			//console.log("result: " +  JSON.stringify(result));
+			console.log("result non stringified: " + result);
+			//console.log("stdout: " + JSON.stringify(result.stdout));
+			//console.log("stdout: non stringified: " + result.stdout);
+			jQuery('#query_result').text(result);
 		});
 	});
 });

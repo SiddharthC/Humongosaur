@@ -100,9 +100,9 @@ var MongoWebController = {
 	inputQuery: function(req, res){
 		//TODO
 		//test code start
-		console.log("Query received is: " + req.params.query);
-		var query = "db.zips.find()";
-		var commandString = "mongo mongoweb --eval \"printjson( "+ query + " )\""; 
+		console.log("Query received is: " + JSON.stringify(req.params.query));
+		var query = "cursor = db.zips.find();while(cursor.hasNext()){printjson(cursor.next());}";
+		var commandString = "mongo mongoweb --eval \""+ query + "\""; 
 		
 		childProcess.exec(commandString, function(err, stdout, stderr){
 			if(err){
@@ -111,7 +111,9 @@ var MongoWebController = {
 				console.log("Signal received: " + err.signal);
 			}
 
-			console.log("stdout: " + stdout);
+//			console.log("stdout: " + stdout);
+
+			res.send(JSON.stringify(stdout));
 		});
 		//end
 	},
