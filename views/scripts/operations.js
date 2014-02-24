@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	jQuery('#query_result').val("Some kachra");
 	$('#run_button').click(function(){
 		console.log("Run button clicked....");
 		jQuery('#query_result').val("");
