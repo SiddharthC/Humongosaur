@@ -23,6 +23,6 @@ Steps to set up:
 
 
 Questions or comments ?
-Please let us know at rikki.siddhart@gmail.com, subject line starting with [Humongosaur]
+Please let us know at rikki.siddharth@gmail.com, subject line starting with [Humongosaur]
 
 Thanks.
