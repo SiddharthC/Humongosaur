@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('#splitters').splitter({type:'h'});
+
 	$('#run_button').click(function(){
 		console.log("Run button clicked....");
 		var params = {
@@ -6,6 +8,7 @@ $(document).ready(function(){
 		};
 	
 		$.getJSON("/inputQuery", params, function(result){
+			alert("In call back");
 			console.log("In call back");
 			//console.log("result: " +  JSON.stringify(result));
 			console.log("result non stringified: " + result);

@@ -1,6 +1,7 @@
 var User = require("../models/user.js");
 var mongoose = require("mongoose");
 var childProcess = require("child_process");
+var spawn = require("child_process").spawn;
 var Query = require("../models/queryModel.js");
 
 //create connection
@@ -100,11 +101,37 @@ var MongoWebController = {
 	inputQuery: function(req, res){
 		//TODO
 		//test code start
+		var output="";
+
 		console.log("Query received is: " + JSON.stringify(req.params.query));
-		var query = "cursor = db.zips.find();while(cursor.hasNext()){printjson(cursor.next());}";
-		var commandString = "mongo mongoweb --eval \""+ query + "\""; 
+		//var query = "cursor = db.zips.find();while(cursor.hasNext()){printjson(cursor.next());}";
+		var query = "printjson(db.getCollectionNames())";
+		var commandString = "mongo mongoweb --eval "+ query; 
 		
-		childProcess.exec(commandString, function(err, stdout, stderr){
+		var temp  = spawn("mongo", ["mongoweb ", "-eval", query]);
+		//temp = spawn(commandString,[]);
+		temp.on('error', function (err){
+			console.log("Error: "+ err);
+		});
+		temp.stdout.on('data', function(data){
+			//console.log("Data is :" + data);
+			output += data;
+			//console.log("Output is :" + output);
+		});
+
+		temp.stderr.on('data', function(data){
+			console.log("stderr: "+ data);		
+		});
+
+		temp.on("exit", function(code){
+			console.log("Output is :" + output);
+			res.send(output);
+
+		});
+
+		console.log("got here");
+//		console.log(temp.stdout.pipe(process.stdout));
+	/*	{
 			if(err){
 				console.log(err.stack);
 				console.log("Error code: " + err.code);
@@ -112,9 +139,11 @@ var MongoWebController = {
 			}
 
 //			console.log("stdout: " + stdout);
-
-			res.send(JSON.stringify(stdout));
+			res.send(JSON.stringify(output));
 		});
+		*/
+	//	res.send(output);
+		
 		//end
 	},
 
