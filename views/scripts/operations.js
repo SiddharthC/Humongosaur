@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('#run_button').click(function(){
 		console.log("Run button clicked....");
+		jQuery('#query_result').val("");
 		var params = {
 			query: jQuery('#input_query_box').val()
 		};
@@ -11,7 +12,7 @@ $(document).ready(function(){
 			console.log("result non stringified: " + result);
 			//console.log("stdout: " + JSON.stringify(result.stdout));
 			//console.log("stdout: non stringified: " + result.stdout);
-			jQuery('#query_result').text(result);
+			jQuery('#query_result').val(result);
 		});
 	});
 });
