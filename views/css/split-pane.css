@@ -1,7 +1,7 @@
-/*!Split Pane v0.1
-  Copyright (c) 2012 Simon HagstrÃ¶m
-  Released under the MIT license
-  https://raw.github.com/shagstrom/split-pane/master/LICENSE
+/*	!Split Pane v0.1
+  	Copyright (c) 2012 Simon HagstrÃ¶m
+	Released under the MIT license
+	https://raw.github.com/shagstrom/split-pane/master/LICENSE
 */
 .split-pane {
 	position: relative;
@@ -24,7 +24,7 @@
 
 .split-pane.fixed-top > .split-pane-component:first-child,
 	.split-pane.fixed-bottom > .split-pane-component:first-child,
-	.split-pane.horizontal-percent > .split-pane-component:first-child {\
+	.split-pane.horizontal-percent > .split-pane-component:first-child {
 		top: 0;
 		bottom: auto;
 }

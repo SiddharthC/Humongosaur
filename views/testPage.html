@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Frames</title>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="./css/main.css">
 		<link rel="stylesheet" href="./css/bootstrap.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="scripts/logout.js"></script>
 		<script src="scripts/operations.js"></script>
 	    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
-		<title>Frames</title>
 		<link rel="stylesheet" href="./css/split-pane.css" />
 		<link rel="stylesheet" href="./css/pretty-split-pane.css" />
-		<script src="./scripts/jquery-1.9.1.js"></script>
+		<script src="./scripts/jquery-1.8.2.js"></script>
 		<script src="./scripts/split-pane.js"></script>
 		<style type="text/css">
-			/*html, body {
-				height: 100%;
-				min-height: 100%;
+			html, body {
+				height: 93%;
+				min-height: 93%;
 				margin: 0;
 				padding: 0;
-			}*/
+			}
 			#top-component {
-	//			top:30%;
-				//bottom: 70%;
-				height:50%;
+				bottom: 70%;
 				margin-bottom: 5px;
-				min-height: 20em;
+				min-height: 5em;
 			}
 			#my-divider {
 				bottom: 70%;
 				height: 5px;
-			}		
+			}
 			#bottom-component {
 				height: 70%;
-				min-height: 15em;
+				min-height: 5em;
 			}
 		</style>
 		<script>
@@ -45,6 +42,7 @@
 			});
 		</script>
 	</head>
+
 	<body>
 		<div id="header">
         		<div id="headercenter">
@@ -59,23 +57,20 @@
 				</div>
 		        </div>
 	    	</div>
-		<br/>
-
 		<div class="split-pane-frame">
 			<div class="split-pane horizontal-percent">
 				<div class="split-pane-component" id="top-component">
 					<div class="decoration">
 						<br>
-						<textarea id="input_query_box" style="width: 80%; height: 40%">Enter your Query here...</textarea>  
+						<textarea id="input_query_box" style="width: 90%; height: 50%">Enter your Query here...</textarea>  
 						<button type="button" id="run_button">Run</button>
-						<br>
 					</div>
 				</div>
 				<div class="split-pane-divider" id="my-divider"></div>
-					<div class="split-pane-component" id="bottom-component">
-						<div class="decoration">
-							<div id="query_result">Some Kachra</div>
-						</div>
+				<div class="split-pane-component" id="bottom-component">
+					<div class="decoration">
+						<div id="query_result">Some Kachra</div>
+	
 					</div>
 				</div>
 			</div>
