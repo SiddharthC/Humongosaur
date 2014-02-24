@@ -1,47 +1,44 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Language" content="en" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Home</title>
-		<script type="text/javascript" src="scripts/jquery.js"></script>
-		<script type="text/javascript" src="scripts/splitter.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<style type="text/css" media="all">
-			body {
-				padding: 1em;
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="./css/bootstrap.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="scripts/logout.js"></script>
+		<script src="scripts/operations.js"></script>
+	    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
+		<link rel="stylesheet" href="./css/split-pane.css" />
+		<link rel="stylesheet" href="./css/pretty-split-pane.css" />
+		<script src="./scripts/jquery-1.8.2.js"></script>
+		<script src="./scripts/split-pane.js"></script>
+		<style type="text/css">
+			html, body {
+				height: 93%;
+				min-height: 93%;
+				margin: 0;
+				padding: 0;
 			}
-			#MySplitter {
-				height: 300px;
-				width: 600px;
-				border: 4px solid #cca;
+			#top-component {
+				bottom: 70%;
+				margin-bottom: 5px;
+				min-height: 5em;
 			}
-			#TopPane {
-				background: #ffe;
-				overflow: auto;
-				height: 100px;
-				min-height: 50px;
-				max-height: 200px;
+			#my-divider {
+				bottom: 70%;
+				height: 5px;
 			}
-			#BottomPane {
-				background: #ffd;
-				overflow: auto;
-			}
-			#MySplitter .hsplitbar {
-				height: 6px;
-				background: #cca url(hgrabber.gif) no-repeat center;
-			}
-			#MySplitter .hsplitbar.active, #MySplitter .hsplitbar:hover {
-				background: #e88 url(hgrabber.gif) no-repeat center;
+			#bottom-component {
+				height: 70%;
+				min-height: 5em;
 			}
 		</style>
-		<script type="text/javascript">
-			$().ready(function() {
-				$("#MySplitter").splitter({
-						type: "h", 
-						sizeTop: true,	/* use height set in stylesheet */
-						accessKey: "P"
-				});
+		<script>
+			$(function() {
+				$('div.split-pane').splitPane();
 			});
 		</script>
 	</head>
@@ -55,103 +52,33 @@
 					</a>
 				</div>
 				<div id="logout-button"> 
-				    	<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
+			    		<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
 				</div>
 		        </div>
 	    	</div>
-		<div id="MySplitter">
-			<div id="TopPane">
-				<textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
-    				<button type="button" id="run_button">Run</button>
-			</div>
-			<div id="BottomPane">
-				<div id="query_result">Some Kachra</div>
+		<div class="split-pane-frame">
+			<div class="split-pane horizontal-percent">
+				<div class="split-pane-component" id="top-component">
+					<div class="decoration">
+						<br>
+						<div id="table">
+							<table style="width: 100%">
+								<tr>
+									<td><textarea id="input_query_box" style="width: 950px; height: 140px">Enter your Query here...</textarea></td>
+									<td><button type="button" id="run_button">Run</button></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="split-pane-divider" id="my-divider"></div>
+				<div class="split-pane-component" id="bottom-component">
+					<div class="decoration">
+						<div id="query_result">Some Kachra</div>
+	
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
 </html>
-<!--<!doctype html>
-<html lang="en-US">
-<head>
-
-	<meta charset="utf-8">
-
-	<title>Home</title>
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
-	<link rel="stylesheet" href="css/main.css">
-	<!-<link rel="stylesheet" href="./css/bootstrap.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="scripts/logout.js"></script>
-	<script src="scripts/operations.js"></script>
-
-    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
-
-    <script type="text/javascript" src="./scripts/jquery-latest.js"></script>
-    <script type="text/javascript" src="./scripts/jquery-ui-latest.js"></script>
-    <script type="text/javascript" src="./scripts/jquery.layout-latest.js"></script>
-    <script type="text/javascript" src"./scripts/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="./scripts/debug.js"></script>->
-    	<script type="text/javascript" src="scripts/jquery.js"></script>
-    	<script type="text/javascript" src="scripts/splitter.js"></script>
-	<style type="text/css" media="all">
-		body {
-			padding: 1em;
-		}
-		#MySplitter {
-			height: 300px;
-			width: 600px;
-			border: 4px solid #cca;
-		}
-		#TopPane {
-			background: #ffe;
-			overflow: auto;
-			height: 100px;
-			min-height: 50px;
-			max-height: 200px;
-		}
-		#BottomPane {
-			background: #ffd;
-			overflow: auto;
-		}
-		#MySplitter .hsplitbar {
-			height: 6px;
-			background: #ffd;
-		}
-		#MySplitter .hsplitbar.active, #MySplitter .hsplitbar:hover {
-			background: #e88;
-		}
-	</style>
-	<script type="text/javascript">
-		$().ready(function() {
-			$("#MySplitters").splitter({type: "h", sizeTop: true,	/* use height set in stylesheet */accessKey: "P"});
-		});
-	</script>
-
-</head>
-<body>
-<!-	<div id="header">
-        	<div id="headercenter">
-			<div id="logo">
-				<a href="home.html">
-					<img src="images/MongoWeb.png" width="80px" height="60px" alt="Home" /><br/>
-					<h1>MongoWeb</h1>
-				</a>
-			</div>
-			<div id="logout-button"> 
-			    	<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
-			</div>
-	        </div>
-    	</div>->
-	<div id="MySplitter">
-		<div id="TopPane">
-			<div>some text
-				<!-<textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
-    				<button type="button" id="run_button">Run</button>	->
-			</div>
-		</div>
-		<div id="BottomPane">
-			<div id="query_result">Some Kachra</div>
-		</div>
-	</div>
-</body>	
-</html>-->

@@ -1,134 +1,85 @@
-<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden; height: 100%; border: none; padding: 0px; margin: 0px;">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Frames</title>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="./css/bootstrap.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="scripts/logout.js"></script>
+		<script src="scripts/operations.js"></script>
+	    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
+		<link rel="stylesheet" href="./css/split-pane.css" />
+		<link rel="stylesheet" href="./css/pretty-split-pane.css" />
+		<script src="./scripts/jquery-1.8.2.js"></script>
+		<script src="./scripts/split-pane.js"></script>
+		<style type="text/css">
+			html, body {
+				height: 93%;
+				min-height: 93%;
+				margin: 0;
+				padding: 0;
+			}
+			#top-component {
+				bottom: 70%;
+				margin-bottom: 5px;
+				min-height: 5em;
+			}
+			#my-divider {
+				bottom: 70%;
+				height: 5px;
+			}
+			#bottom-component {
+				height: 70%;
+				min-height: 5em;
+			}
+		</style>
+		<script>
+			$(function() {
+				$('div.split-pane').splitPane();
+			});
+		</script>
+	</head>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-    <title>Simple Layout Demo</title>
-
-    <link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
-
-    <!-- LAYOUT v 1.3.0 -->
-    <script type="text/javascript" src="./scripts/jquery-latest.js"></script>
-    <script type="text/javascript" src="./scripts/operations.js"></script>
-    <script type="text/javascript" src="./scripts/jquery-ui-latest.js"></script>
-    <script type="text/javascript" src="./scripts/jquery.layout-latest.js"></script>
-    <script type="text/javascript" src"./scripts/jquery-1.9.1.js"></script>
-
-    <script type="text/javascript" src="./scripts/debug.js"></script>
-
-    <script type="text/javascript">
-
-    function toggleStateManagement(skipAlert, mode) {
-        if (!$.layout.plugins.stateManagement) return;
-
-        var options = myLayout.options.stateManagement,
-            enabled = options.enabled // current setting
-            ;
-        if ($.type(mode) === "boolean") {
-            if (enabled === mode) return; // already correct
-            enabled = options.enabled = mode
-        } else
-            enabled = options.enabled = !enabled; // toggle option
-
-        if (!enabled) { // if disabling state management...
-            myLayout.deleteCookie(); // ...clear cookie so will NOT be found on next refresh
-            if (!skipAlert)
-                alert('This layout will reload as the options specify \nwhen the page is refreshed.');
-        } else if (!skipAlert)
-            alert('This layout will save & restore its last state \nwhen the page is refreshed.');
-
-    };
-
-    // set EVERY 'state' here so will undo ALL layout changes
-    // used by the 'Reset State' button: myLayout.loadState( stateResetSettings )
-    var stateResetSettings = {
-        north__size: "auto",
-        north__initClosed: false,
-        north__initHidden: false,
-        south__size: "auto",
-        south__initClosed: false,
-        south__initHidden: false,
-    };
-
-    var myLayout;
-
-    $(document).ready(function() {
-        
-	myLayout = $('body').layout({
-
-            //	reference only - these options are NOT required because 'true' is the default
-            closable: true // pane can open & close
-            ,
-            resizable: true // when open, pane can be resized 
-            ,
-            slidable: true // when closed, pane can 'slide' open over other panes - closes on mouse-out
-            ,
-            livePaneResizing: true
-
-            //	some resizing/toggling settings
-            ,
-            north__slidable: false // OVERRIDE the pane-default of 'slidable=true'
-            ,
-            north__togglerLength_closed: '100%' // toggle-button is full-width of resizer-bar
-            ,
-            north__spacing_closed: 20 // big resizer-bar when open (zero height)
-            ,
-            south__resizable: false // OVERRIDE the pane-default of 'resizable=true'
-            ,
-            south__spacing_open: 0 // no resizer-bar when open (zero height)
-            ,
-            south__spacing_closed: 20 // big resizer-bar when open (zero height)
-
-            //	some pane-size settings
-            ,
-            west__minSize: 100,
-            east__size: 300,
-            east__minSize: 200,
-            east__maxSize: .5 // 50% of layout width
-            ,
-            center__minWidth: 100
-            //	enable state management
-            ,
-            stateManagement__enabled: true // automatic cookie load & save enabled by default
-
-            ,
-            showDebugMessages: true // log and/or display messages from debugging & testing code
-        });
-
-        // if there is no state-cookie, then DISABLE state management initially
-        var cookieExists = !$.isEmptyObject(myLayout.readCookie());
-        if (!cookieExists) toggleStateManagement(true, false);
-
-    });
-    </script>
-
-
-</head>
-
-<body>
-
-
-    <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 5px; top: 10px; bottom: 0px; left: 10px; right: 10px; width: auto; z-index: 0; height: 300px; display: block; visibility: visible; overflow: false; font-size:15px">
-     <textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
-<!--	<p id="spn_url"></p>-->
-     <input type="submit" value="Run" name="submit" id="run_button" />
-     </div>
-
-    <div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 206px; right: 306px; top: 93px; bottom: 48px; height: 490px; width: 832px; z-index: 0; display: block; visibility: visible;">
-      <p id="query_result">Some Kachra</p>
-      <p id="spn_url">
-      </p>
-    </div>
-<!--
-    <div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow(&#39;north&#39;)" onmouseout="myLayout.resetOverflow(this)" style="position: absolute; margin: 5px; top: 10px; bottom: 0px; left: 10px; right: 10px; width: auto; z-index: 0; height: 300px; display: block; visibility: visible; overflow: false; font-size:15px">
-     <textarea id="input_query_box" style="width: 80%; height: 50%">Enter your Query here...</textarea>  
-    <button type="button" id="run_button">Run</button>
-     </div>
-
-    <div class="ui-layout-center ui-layout-pane ui-layout-pane-center" style="position: absolute; margin: 0px; left: 206px; right: 306px; top: 93px; bottom: 48px; height: 490px; width: 832px; z-index: 0; display: block; visibility: visible;">
-      <p id="query_result">Some Kachra</p>
-    </div>
--->
-    </body>
-
+	<body>
+		<div id="header">
+        		<div id="headercenter">
+				<div id="logo">
+					<a href="home.html">
+						<img src="images/MongoWeb.png" width="80px" height="60px" alt="Home" /><br/>
+						<h1>MongoWeb</h1>
+					</a>
+				</div>
+				<div id="logout-button"> 
+			    		<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
+				</div>
+		        </div>
+	    	</div>
+		<div class="split-pane-frame">
+			<div class="split-pane horizontal-percent">
+				<div class="split-pane-component" id="top-component">
+					<div class="decoration">
+						<br>
+						<div id="table">
+							<table style="width: 100%">
+								<tr>
+									<td><textarea id="input_query_box" style="width: 950px; height: 140px">Enter your Query here...</textarea></td>
+									<td><button type="button" id="run_button">Run</button></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="split-pane-divider" id="my-divider"></div>
+				<div class="split-pane-component" id="bottom-component">
+					<div class="decoration">
+						<div id="query_result">Some Kachra</div>
+	
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
