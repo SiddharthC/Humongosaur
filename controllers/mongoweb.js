@@ -1,6 +1,8 @@
 var User = require("../models/user.js");
 var mongoose = require("mongoose");
 var childProcess = require("child_process");
+var url = require("url");
+var queryString = require("querystring");
 
 //create connection
 
@@ -97,15 +99,34 @@ var MongoWebController = {
 	
 	//write query post function
 	inputQuery: function(req, res){
-		console.log("Query received is: " + req.params);
-		var query = "cursor = db.zips.find(); while(cursor.hasNext()){printjson(cursor.next());}";
+		var data = url.parse(req.url).query;
+		var obj = queryString.parse(data);
+		var query = obj.query;
+		//var query = "cursor = db.zips.find(); while(cursor.hasNext()){printjson(cursor.next());}";	//same query string
 		var commandString = "mongo mongoweb --eval \""+ query + "\""; 
 		
 		childProcess.exec(commandString, {maxBuffer: 10000 * 1024}, function(err, stdout, stderr){
+			var output;
 			if(err){
-				console.log(err);
+				output = err;
 			}
-			res.send(JSON.stringify(stdout));
+			if(stdout){
+				if(output){
+					output +=stdout;
+				}
+				else{
+					output = stdout;
+				}
+			}
+			if(stderr){
+				if(output){
+					output += stderr;
+				}
+				else{
+					output = stderr;
+				}
+			}
+			res.send(JSON.stringify(output));
 		});
 
 	},
