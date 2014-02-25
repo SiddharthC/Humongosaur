@@ -17,6 +17,5 @@ module.exports = function(app, config){
 			collection: "mongoweb_sesions"})
 				}));
 	
-	app.use(express.logger());
 	app.use(app.router);
 };

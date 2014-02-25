@@ -5,224 +5,224 @@
 /* GENERAL */
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Nobile', Helvetica, Arial, sans-serif !important;
-    font-size: 14px;
+	margin: 0;
+	padding: 0;
+	font-family: 'Nobile', Helvetica, Arial, sans-serif !important;
+	font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
-  font-family: 'Nobile', Helvetica, Arial, sans-serif !important;  
+	font-family: 'Nobile', Helvetica, Arial, sans-serif !important;  
 }
 
 .clear {
-    clear: both;
+	clear: both;
 }
 
 
 /* HEADER */
 
 #header {
-    height:100px;
-    background-color: #6699CC;
-    margin: 0;
-    min-width: 1150px;
+	height:100px;
+	background-color: #6699CC;
+	margin: 0;
+	min-width: 1150px;
 }
 
 #logo {
-    float: left;
-    margin: 15px 0 0 15px;
-    text-align: center;
+	float: left;
+	margin: 15px 0 0 15px;
+	text-align: center;
 }
 
 #logo h1 {
-    margin: 0;
-    padding:0;
-    font-size:15px;
-    color: white;
-    /*font-family: Tahoma, Geneva, sans-serif;*/
+	margin: 0;
+	padding:0;
+	font-size:15px;
+	color: white;
+	/*font-family: Tahoma, Geneva, sans-serif;*/
 }
 
 #homebutton {
-    margin: 17px 0 0 10px;
-    float: left;
-    text-align: center;
+	margin: 17px 0 0 10px;
+	float: left;
+	text-align: center;
 }
 
 #graph {
-    padding: 26px 0 0 30px;
-    float: left;
+	padding: 26px 0 0 30px;
+	float: left;
 }
 
 #profile {
-    padding: 7px 0 0 30px;
-    float: right;
-    margin-right: 1%;
+	padding: 7px 0 0 30px;
+	float: right;
+	margin-right: 1%;
 }
 
 #wrapper {
-    min-width: 1150px;
-    padding: 10px 30px 0 100px;
+	min-width: 1150px;
+	padding: 10px 30px 0 100px;
 }
 
 #table td {
 	padding: 0 20px 0 20px;
 }
-	
+
 
 #logout-button{
-    float: right;
-    padding: 27px 15px 0 0;
-//    margin-top: 1.5%;
+	float: right;
+	padding: 27px 15px 0 0;
+	//    margin-top: 1.5%;
 }
 
 
 /* NAV BAR */
 
 #left {
-    float: left;
-    height: 1000px;
-    background-color:#d8d8d8;
-    padding: 15px;
+	float: left;
+	height: 1000px;
+	background-color:#d8d8d8;
+	padding: 15px;
 }
 
 #navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
  
 #navbar ul li {
-    display:box;
-    min-width: 220px;
-    width: 100%;
-    height: 40px;
-    padding: 10px 0;
-    margin: 10px 0 0 0;
-    text-align: center;
-    /*font-family: Tahoma, Geneva, sans-serif;*/
-    color:#000;
+	display:box;
+	min-width: 220px;
+	width: 100%;
+	height: 40px;
+	padding: 10px 0;
+	margin: 10px 0 0 0;
+	text-align: center;
+	/*font-family: Tahoma, Geneva, sans-serif;*/
+	color:#000;
 }
 
 #navbar p {
-    margin: 0;
-    padding: 0;
-    font-size:24px;
+	margin: 0;
+	padding: 0;
+	font-size:24px;
 }
 
 #navbar a, a:visited {
-    display:box;
-    text-decoration: none;
-    color: #123456;
+	display:box;
+	text-decoration: none;
+	color: #123456;
 }
 
 .navlink {
-    background:#EEE;
+	background:#EEE;
 }
 
 .navlink:hover {
-    background:#669966;
+	background:#669966;
 }
 
 #left #navbar .btn{
-    background-color:#70382D; 
-    width:100%; 
-    margin: 2%;
-    border: none !important;
+	background-color:#70382D; 
+	width:100%; 
+	margin: 2%;
+	border: none !important;
 }
 
 
 /* MAIN STUFF */
 
 #right {
-    /*font-family: Tahoma, Geneva, sans-serif;*/
-    width: 80%;
-    min-width:1000px;
+	/*font-family: Tahoma, Geneva, sans-serif;*/
+	width: 80%;
+	min-width:1000px;
 }
 
 #rightmessages {
-    /*font-family: Tahoma, Geneva, sans-serif;*/
-    /*width: 83%;*/
-    min-width:1000px;
-    height:1000px;
-    /*float:left;*/
-    background:#f5f5f5;
+	/*font-family: Tahoma, Geneva, sans-serif;*/
+	/*width: 83%;*/
+	min-width:1000px;
+	height:1000px;
+	/*float:left;*/
+	background:#f5f5f5;
 }
 
 #right h1 {
-    margin: 70px 0 0 0;
-    padding: 0;
+	margin: 70px 0 0 0;
+	padding: 0;
 }
 
 #left {
-    width: 15%;
-    min-width:250px;
-   }
+	width: 15%;
+	min-width:250px;
+}
 
 #floatleft {
-    float: left;
-    margin: 0 10px;
-    width:33%;
+	float: left;
+	margin: 0 10px;
+	width:33%;
 }
 
 #floatright {
-    float: left;
-    margin: 0 10px;
-    width:33%;
+	float: left;
+	margin: 0 10px;
+	width:33%;
 }
 
 #floatrightmessages {
-    float: left;
-    margin: 0 10px;
-    width:33%;
-    min-width:700px;
+	float: left;
+	margin: 0 10px;
+	width:33%;
+	min-width:700px;
 }
    
 #messagetop ul {
-    list-style: none;
-    padding: 0;
-    margin: 18px 0 0 0;
+	list-style: none;
+	padding: 0;
+	margin: 18px 0 0 0;
 }
 
 #messagetop ul li {
-    display:box;
-    float: left;
-    width:80px;
-    text-align:center;
-    border: 1px solid #000;
-    margin: 10px 0 0 5px;
-    padding: 0 0 0 5px;
-    /*font-family: Tahoma, Geneva, sans-serif;*/
-    color:#000;
+	display:box;
+	float: left;
+	width:80px;
+	text-align:center;
+	border: 1px solid #000;
+	margin: 10px 0 0 5px;
+	padding: 0 0 0 5px;
+	/*font-family: Tahoma, Geneva, sans-serif;*/
+	color:#000;
 }
 
 #messagetop p {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #messagetop a, a:visited {
-    text-decoration: none;
-    color: #123456;
+	text-decoration: none;
+	color: #123456;
 }
 
 .messagetoplink {
-    background:#EEE;
+	background:#EEE;
 }
 
 .messagetoplink:hover {
-    background:#007799;
+	background:#007799;
 }
 
 #messagetop select {
-    margin: 10px 0 0 10px;
-    float: left;
+	margin: 10px 0 0 10px;
+	float: left;
 }
 
 .message {
-    margin: 15px 0 0 0;
-    background:#E7DA7B;
-    height:85px;
+	margin: 15px 0 0 0;
+	background:#E7DA7B;
+	height:85px;
 }
 
 .messageleft {
@@ -254,9 +254,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 
 .box {
-    width: 95%;
-    height: 228px;
-    border: 1px solid #000;
-    margin: 10px auto;
-    text-align: center;
+	width: 95%;
+	height: 228px;
+	border: 1px solid #000;
+	margin: 10px auto;
+	text-align: center;
 }
