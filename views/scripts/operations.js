@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	jQuery('#query_result').val("Some kachra");
 	$('#run_button').click(function(){
-		jQuery('#query_result').val("");
+//		jQuery('#query_result').val("");
 		var params = {
 			query: jQuery('#input_query_box').val()
 		};
 		$.getJSON("/inputQuery", params, function(result){
-			jQuery('#query_result').text(result);
+			jQuery('#query_result').val(result);
 		});
 	});
 });
