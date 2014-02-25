@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	jQuery('#query_result').val("Some kachra");
+	jQuery('#query_result').val("");
 	$('#run_button').click(function(){
 //		jQuery('#query_result').val("");
 		var params = {
