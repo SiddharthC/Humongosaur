@@ -1,85 +1,70 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-US">
+
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Frames</title>
+		<title>Register</title>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/register.css">
 		<link rel="stylesheet" href="./css/bootstrap.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="scripts/logout.js"></script>
-		<script src="scripts/operations.js"></script>
-	    	<link type="text/css" rel="stylesheet" href="./css/layout-default-latest.css">
-		<link rel="stylesheet" href="./css/split-pane.css" />
-		<link rel="stylesheet" href="./css/pretty-split-pane.css" />
-		<script src="./scripts/jquery-1.8.2.js"></script>
-		<script src="./scripts/split-pane.js"></script>
-		<style type="text/css">
-			html, body {
-				height: 93%;
-				min-height: 93%;
-				margin: 0;
-				padding: 0;
-			}
-			#top-component {
-				bottom: 70%;
-				margin-bottom: 5px;
-				min-height: 5em;
-			}
-			#my-divider {
-				bottom: 70%;
-				height: 5px;
-			}
-			#bottom-component {
-				height: 70%;
-				min-height: 5em;
-			}
-		</style>
-		<script>
-			$(function() {
-				$('div.split-pane').splitPane();
-			});
-		</script>
 	</head>
 
 	<body>
 		<div id="header">
-        		<div id="headercenter">
+			<div id="headercenter">
 				<div id="logo">
 					<a href="home.html">
-						<img src="images/MongoWeb.png" width="80px" height="60px" alt="Home" /><br/>
+						<img src="images/MongoWeb.png" width="80px" height="60px" alt="MongoWeb" /><br/>
 						<h1>MongoWeb</h1>
 					</a>
 				</div>
-				<div id="logout-button"> 
-			    		<a id="logout_link" href="#"><button type="button" class="btn btn-primary btn-lg">Logout</button></a>
-				</div>
-		        </div>
-	    	</div>
-		<div class="split-pane-frame">
-			<div class="split-pane horizontal-percent">
-				<div class="split-pane-component" id="top-component">
-					<div class="decoration">
-						<br>
-						<div id="table">
-							<table style="width: 100%">
-								<tr>
-									<td><textarea id="input_query_box" style="width: 950px; height: 140px">Enter your Query here...</textarea></td>
-									<td><button type="button" id="run_button">Run</button></td>
-								</tr>
-							</table>
+			</div>
+		</div>
+		<div id="login">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-7" style="margin-left:35%">
+						<div class="panel panel-default">
+							<div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Register New User</div>
+							<form class="form-horizontal" role="form" method="POST" action="/register">
+								<div class="panel-body">
+									<div class="form-group">
+										<label for="inputUsername" class="col-sm-4 control-label">Username </label>
+										<div class="col-sm-8"><input name="username" type="text" class="form-control" id="inputUsername" placeholder="Username" required></div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword3" class="col-sm-4 control-label">Password </label>
+										<div class="col-sm-8"><input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password" required></div>
+									</div>
+									<div class="form-group">
+										<label for="email" class="col-sm-4 control-label">E-mail </label>
+										<div class="col-sm-8"><input name="email" type="email" class="form-control" id="email" placeholder="email" required></div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-15">
+											<div class="checkbox">
+												<label><input type="checkbox" name="isAdminFlag" value="true">This user is an administrator</input></label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel-footer">
+									<div class="form-group last">
+										<div class="col-sm-offset-3 col-sm-9">
+											<button type="submit" class="btn btn-success btn-sm">Sign in</button>
+											<button type="reset" class="btn btn-default btn-sm">Reset</button>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="split-pane-divider" id="my-divider"></div>
-				<div class="split-pane-component" id="bottom-component">
-					<div class="decoration">
-						<div id="query_result">Some Kachra</div>
-	
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- end login -->
+		<script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
 	</body>
 </html>

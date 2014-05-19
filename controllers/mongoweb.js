@@ -147,7 +147,7 @@ var MongoWebController = {
 			return;
 		}
 
-		if (username = 'mail@address.com'){
+		if (username == 'mail@address.com'){
 			res.send("Please input a valid email address");
 			return;
 		}
@@ -164,7 +164,7 @@ var MongoWebController = {
 			}
 
 			if (result){
-				res.send("This email id  is already registered...\nPlease use Reset Form for password recovery.");
+				res.send("This email id  is already registered...");
 			}
 			else{
 				new User({
