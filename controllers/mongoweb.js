@@ -39,6 +39,7 @@ var MongoWebController = {
 			} 
 			else {
 				console.log("Authentication error");
+				res.send("Authentication error");
 				res.redirect('/login');
 			}
 		},			      
@@ -49,7 +50,8 @@ var MongoWebController = {
 			if (isAuthenticated)
 				next();
 			else {
-				console.log("Admin verification failed");
+				console.log("Admin verification falied");
+				res.send("Admin verification failed");
 				res.redirect('/login');
 			}
 		}
@@ -156,27 +158,34 @@ var MongoWebController = {
 			isAdminFlag = false;
 		}
 
-		User.findOne({
-			email: email
-		}, function(err, result){
+		User.findOne({username: username}, function(err, result){
 			if (err){
 				throw err;
 			}
 
 			if (result){
-				res.send("This email id  is already registered...");
+				res.send("This username is already taken...");
 			}
 			else{
-				new User({
-					username: username,
-					password: password,
-					email: email,
-					isAdminFlag: isAdminFlag
-				}).save(function(err, result){
-					if(err){
+				User.findOne({email: email}, function(err, result){
+					if (err){
 						throw err;
 					}
 
+					if (result){
+						res.send("This email id is already registered...");
+					}
+					else{
+						new User({
+							username: username,
+							password: password,
+							email: email,
+							isAdminFlag: isAdminFlag
+						}).save(function(err, result){
+							if(err){
+								throw err;
+							}	
+		
 					/*
 					var mailOptions = {
 						from: "MongoWeb Dev Team <mongoweb.node@gmail.com>",
@@ -204,7 +213,9 @@ var MongoWebController = {
 					res.send("Please verify through the email received.");
 					*/
 
-					res.send("Thanks for registering....");
+							res.send("Thanks for registering....");
+						});
+					}
 				});
 			}
 		});
